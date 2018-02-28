@@ -1,7 +1,7 @@
 {
   "name": "react-basic-htmltree",
   "description": "React component for HTML structures based on a string, react component or DOM node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Stefan Dühring | Autarc <autarc@gmail.com>",
   "contributors": [
     "Gabriel Deliu <dcgro@yahoo.com>"

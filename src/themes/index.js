@@ -7,9 +7,9 @@
 const basicStyles = require('./index.styl')
 
 const predefinedThemes = {
-  'chrome-devtools': require('./chrome-devtools.styl'),
-  'firefox-devtools.dark': require('./firefox-devtools.dark.styl'),
-  'firefox-devtools.light': require('./firefox-devtools.light.styl')
+  "chrome-devtools": require("./chrome-devtools.styl"),
+  "firefox-devtools.dark": require("./firefox-devtools.dark.styl"),
+  "firefox-devtools.light": require("./firefox-devtools.light.styl")
 }
 
 /**
