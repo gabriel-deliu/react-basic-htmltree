@@ -21,6 +21,7 @@ export default class HTMLTree extends Component {
 
   static defaultProps = {
     theme: 'chrome-devtools',
+    defaultExpanded: true,
     defaultExpandedTags: ['html', 'body']
   };
 
@@ -34,6 +35,7 @@ export default class HTMLTree extends Component {
       PropTypes.string,
       PropTypes.object
     ]).isRequired,
+    defaultExpanded: PropTypes.bool.isRequired,
     defaultExpandedTags: PropTypes.array.isRequired,
     customRender: PropTypes.func,
     onHover: PropTypes.func,

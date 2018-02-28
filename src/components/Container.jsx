@@ -20,6 +20,7 @@ export default class Container extends Component {
   static propTypes = {
     tree: PropTypes.array.isRequired,
     origin: PropTypes.instanceOf(isBrowser && HTMLElement),
+    defaultExpanded: PropTypes.bool.isRequired,
     defaultExpandedTags: PropTypes.array.isRequired,
     customRender: PropTypes.func,
     onHover: PropTypes.func,
@@ -67,7 +68,7 @@ export default class Container extends Component {
    * @param  {Array}   props.defaultExpandedTags - [description]
    * @return {Object}                            - [description]
    */
-  getRoot ({ tree, defaultExpandedTags }) {
+  getRoot ({ tree, defaultExpandedTags, defaultExpanded }) {
     transformNodes(tree, [], true)
     return Immutable.fromJS(tree[0])
 
@@ -77,7 +78,7 @@ export default class Container extends Component {
         node.depth = getDepth(node)
         node.selector = getSelector(node.name ? node : node.parent)
         node.keyPath = initial ? keyPath : [...keyPath, 'children', i]
-        node.state = defaultExpandedTags.indexOf(node.name) > -1 ? { expanded: true } : {}
+        node.state = defaultExpanded || defaultExpandedTags.indexOf(node.name) > -1 ? { expanded: true } : {}
         if (node.children) {
           if (node.children.length) {
             node.children = node.children.filter((child) => child.type !== 'text' || child.data.trim().length)

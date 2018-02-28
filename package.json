@@ -1,10 +1,13 @@
 {
-  "name": "react-htmltree",
+  "name": "react-basic-htmltree",
   "description": "React component for HTML structures based on a string, react component or DOM node",
-  "version": "0.8.1",
+  "version": "0.0.1",
   "author": "Stefan Dühring | Autarc <autarc@gmail.com>",
+  "contributors": [
+    "Gabriel Deliu <dcgro@yahoo.com>"
+  ],
   "bugs": {
-    "url": "https://github.com/Autarc/react-htmltree/issues"
+    "url": "https://github.com/gabriel-deliu/react-basic-htmltree/issues"
   },
   "dependencies": {
     "classnames": "^2.2.3",
@@ -45,7 +48,7 @@
     "stylus-loader": "^1.4.2",
     "webpack": "^1.12.9"
   },
-  "homepage": "https://github.com/Autarc/react-htmltree",
+  "homepage": "https://github.com/gabriel-deliu/react-basic-htmltree",
   "keywords": [
     "react",
     "html",
@@ -56,11 +59,15 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Autarc/react-htmltree.git"
+    "url": "https://github.com/gabriel-deliu/react-basic-htmltree.git"
   },
   "scripts": {
     "build": "NODE_ENV=production node build",
     "check": "npm outdated -depth 0",
-    "dev": "NODE_ENV=Development node build"
+    "dev": "NODE_ENV=Development node build",
+    "publish-sandt": "npm publish --registry http://192.168.5.104:8081/nexus/content/repositories/npm-internal/"
+  },
+  "publishConfig" : {
+    "registry" : "http://192.168.5.104:8081/nexus/content/repositories/npm-internal/"
   }
 }
