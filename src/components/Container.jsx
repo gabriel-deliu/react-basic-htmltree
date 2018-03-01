@@ -22,6 +22,7 @@ export default class Container extends Component {
     origin: PropTypes.instanceOf(isBrowser && HTMLElement),
     defaultExpanded: PropTypes.bool.isRequired,
     defaultExpandedTags: PropTypes.array.isRequired,
+    showExpander: PropTypes.bool.isRequired,
     customRender: PropTypes.func,
     onHover: PropTypes.func,
     onExpand: PropTypes.func,
@@ -47,12 +48,12 @@ export default class Container extends Component {
   }
 
   render(){
-    const { onHover, customRender } = this.props
+    const { onHover, customRender, showExpander } = this.props
     const { root } = this.state
     return (
       <div className="Container">
         <div className="Container__Nodes">
-          <Node node={root} update={::this.onUpdate} onHover={onHover} customRender={customRender}/>
+          <Node node={root} update={::this.onUpdate} onHover={onHover} customRender={customRender} showExpander={showExpander}/>
         </div>
         <input className="Container__Input" type="text" ref="input"
           onFocus={::this.toggleFocus}

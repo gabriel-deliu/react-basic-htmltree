@@ -23,7 +23,8 @@ export default class Node extends Component {
     node: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired,
     onHover: PropTypes.func,
-    customRenderer: PropTypes.func
+    customRenderer: PropTypes.func,
+    showExpander: PropTypes.bool.isRequired,
   };
 
   shouldComponentUpdate (nextProps, nextState) {
@@ -39,7 +40,7 @@ export default class Node extends Component {
   }
 
   getRenderable(){
-    const { node, update, onHover } = this.props
+    const { node, update, onHover, showExpander } = this.props
 
     const type = node.get('type')
     const name = node.get('name')
@@ -124,7 +125,7 @@ export default class Node extends Component {
     // render: collapsed + extended content
     const head = (
       <div className={classnames(["Node__Tag", "Node__Head", modifier])} style={base} {...tagEventHandlers}>
-        {name !== 'html' && (
+        {name !== 'html' && showExpander && (
           <span className="Node__Expander" style={baseExpander} onMouseDown={(e) => update(e, this, 'toggleExpand')}>
             {!expanded ? <span>&#9654;</span> : <span>&#9660;</span>}{/** '▶' : '▼' **/}
           </span>
