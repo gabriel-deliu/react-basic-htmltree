@@ -182,6 +182,7 @@ export default class Container extends Component {
         break
 
       case 'triggerSelect':
+        return;
         if (latest) {
           this.refs.input.blur()
           const latestKeyPath = [...latest.props.node.get('keyPath').toJS(), 'state']
@@ -201,6 +202,7 @@ export default class Container extends Component {
         }, ::this.refs.input.focus)
 
       case 'toggleFocus':
+        return;
         if (data.selected) {
           if (onSelect && onSelect.call(this, element, component) !== undefined) return
         } else {
